@@ -1,1 +1,81 @@
 用法：https://github.com/stleary/JSON-java
+SON是一种轻量级，语言无关的数据交换格式。见http://www.JSON.org/
+
+该软件包中的文件使用Java实现JSON编码器/解码器。它还包括在JSON和XML，HTTP标头，Cookie和CDL之间进行转换的功能。
+
+这是一个参考实现。Java中有大量的JSON包。也许有一天Java社区将在一个标准化。在此之前，请谨慎选择。
+
+许可证包括这个限制：“该软件应该用于善，而不是邪恶。” 如果你的良心不能忍受，那么选择一个不同的包。
+
+该软件包在Java 1.6-1.8上编译。
+
+JSONObject.java：JSONObject可以解析a String或a中的文本JSONTokener 以生成类似地图的对象。该对象提供了用于操纵其内容以及用于生成符合JSON的对象序列化的方法。
+
+JSONArray.java：JSONArray可以解析String或a中的文本，JSONTokener 以生成类似矢量的对象。该对象提供了用于操纵其内容以及用于生成符合JSON的数组序列化的方法。
+
+JSONTokener.java：将JSONTokener文本分成一系列单独的标记。它可以从一个被构造String，Reader或InputStream。
+
+JSONException.java：JSONException这个包引发的标准异常类型。
+
+JSONPointer.java：实施 JSON指针（RFC 6901） 。以字符串表示形式和URI片段表示形式支持JSON指针。
+
+JSONPropertyIgnore.java：可以在Java Bean getter方法上使用的Annotation类。当在通常被序列化为a的bean方法上使用时JSONObject，它会覆盖getter-to-key-name逻辑并强制将属性从结果中排除JSONObject。
+
+JSONPropertyName.java：可以在Java Bean getter方法上使用的Annotation类。当在通常被序列化为a的bean方法上使用时JSONObject，它会覆盖getter-to-key-name逻辑并使用注释的值。Bean处理器将查看类层次结构。这意味着您可以在基类或接口上使用注释，即使在子类中重写了getter，也将使用注释的值。
+
+JSONString.java：JSONString接口需要一个toJSONString方法，允许对象提供自己的序列化。
+
+JSONStringer.java：JSONStringer为构建JSON字符串提供了便利的工具。
+
+JSONWriter.java：它JSONWriter提供了一种通过编写器构建JSON文本的便捷工具。
+
+CDL.java：CDL支持在JSON和逗号分隔列表之间进行转换。
+
+Cookie.java：Cookie支持在JSON和cookie之间进行转换。
+
+CookieList.java：CookieList支持在JSON和cookie列表之间进行转换。
+
+HTTP.java：HTTP支持在JSON和HTTP标头之间进行转换。
+
+HTTPTokener.java：HTTPTokener扩展JSONTokener用于解析HTTP头。
+
+XML.java：XML支持在JSON和XML之间进行转换。
+
+JSONML.java：JSONML支持在JSONML和XML之间进行转换。
+
+XMLTokener.java：XMLTokener扩展JSONTokener解析XML文本。
+
+单元测试在单独的项目中维护。贡献开发人员可以使用此项目中的代码测试JSON-java pull请求：https： //github.com/stleary/JSON-Java-unit-test
+
+此包中的数字类型符合 ECMA-404：JSON数据交换格式和 RFC 7159：JavaScript对象表示法（JSON）数据交换格式。该软件包完全支持Integer，Long以及DoubleJava类型。用于部分支撑BigInteger并BigDecimal在值JSONObject和JSONArray对象以的形式提供get()，opt()以及put()API方法。
+
+虽然目前支持1.6兼容性，但它不是项目目标，可能会在将来的某个版本中删除。
+
+根据RFC7159第10页第9节，解析器对于有效的JSON比生成器更松懈。例如，在读取JSON文本字符串时允许使用制表符（U + 0009），但在生成器输出时，选项卡在字符串中正确转换为\ t。读取无效JSON文本不会导致生成错误的其他实例可能会发生。格式错误的JSON文本，例如字符串上缺少结尾“（引用）或无效数字格式（1.2e6.3）将导致错误，因为无法可靠地读取此类文档。
+
+发布历史：
+
+20180813    POM change to include Automatic-Module-Name (#431)
+
+20180130    Recent commits
+
+20171018    Checkpoint for recent commits.
+
+20170516    Roll up recent commits.
+
+20160810    Revert code that was breaking opt*() methods.
+
+20160807    This release contains a bug in the JSONObject.opt*() and JSONArray.opt*() methods,
+it is not recommended for use.
+Java 1.6 compatability fixed, JSONArray.toList() and JSONObject.toMap(),
+RFC4180 compatibility, JSONPointer, some exception fixes, optional XML type conversion.
+Contains the latest code as of 7 Aug, 2016
+
+20160212    Java 1.6 compatibility, OSGi bundle. Contains the latest code as of 12 Feb, 2016.
+
+20151123    JSONObject and JSONArray initialization with generics. Contains the
+latest code as of 23 Nov, 2015.
+
+20150729    Checkpoint for Maven central repository release. Contains the latest code
+as of 29 July, 2015.
+通过在Maven存储库中搜索groupId“org.json”和artifactId“json”，可以找到JSON-java版本。例如：https：//search.maven.org/search？q = g：or.json％20and％20： json＆core = gav
